@@ -1,0 +1,27 @@
+$(document).ready( function () {
+    //$('#users-list').DataTable();
+      $(document).on('click',".delete",function(e)
+          { 
+
+            e.preventDefault();
+            alert("are you want to delete??");
+              var $ele = $(this).parents('tr');
+              alert($ele);
+              var studentid   = $(this).attr('studentid');
+              alert(studentid);
+               $.ajax({
+                  url:Namespace.configuration.delete,
+                  type:"post",
+                  dataType: "json",
+                  data:{
+                    'studentid':studentid
+                  },
+                  success: function(response)
+                  {
+                       $ele.remove();
+                       alert("response");
+                       window.location.href = "<?php echo site_url().'/Crud/index'; ?>" ;
+                  }
+              });
+          });
+} );

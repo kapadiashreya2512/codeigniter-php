@@ -1,9 +1,3 @@
-<html>
-<head>
-<meta charset = "htf-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<body>
 
 <div class="container mt-4">
     <div class="d-flex justify-content-end">
@@ -42,40 +36,3 @@
   </div>
 </div>
 <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-<script>
-    $(document).ready( function () {
-      //$('#users-list').DataTable();
-        $(document).on('click',".delete",function(e)
-            { 
-
-              e.preventDefault();
-              alert("are you want to delete??");
-                var $ele = $(this).parents('tr');
-                alert($ele);
-                var studentid   = $(this).attr('studentid');
-                alert(studentid);
-                 $.ajax({
-                    url:"<?php echo site_url().'/Crud/delete';?>",
-                    type:"post",
-                    dataType: "json",
-                    data:{
-                      'studentid':studentid
-                    },
-                    success: function(response)
-                    {
-                         $ele.remove();
-                         alert("response");
-                         window.location.href = "<?php echo site_url().'/Crud/index'; ?>" ;
-                    }
-                });
-            });
-  } );
-</script>
-
-<?php $session = session();
-?>
-
-</body>
-</html>

@@ -8,5 +8,5 @@ class AdminModel extends Model
 
     protected $primaryKey = 'userid';
     
-    protected $allowedFields = ['username', 'password'];
+    protected $allowedFields = ['username', 'password','profile'];
 }
